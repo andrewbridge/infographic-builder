@@ -1,30 +1,36 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <svg-defs></svg-defs>
+    <app-header></app-header>
+    <control-panels></control-panels>
+    <workspace></workspace>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import SvgDefs from 'components/SvgDefs'
+import AppHeader from 'components/AppHeader'
+import ControlPanels from 'components/ControlPanels'
+import Workspace from 'components/Workspace'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    SvgDefs,
+    AppHeader,
+    ControlPanels,
+    Workspace
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 @import '~mdl/material.min.css';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
