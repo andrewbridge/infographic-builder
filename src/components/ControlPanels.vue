@@ -1,13 +1,13 @@
 <template>
   <div class="control-panel-container">
-    <control-panel id="object-attributes" snap="top">
-      <global-tools></global-tools>
-      <text-tools></text-tools>
-      <icon-tools></icon-tools>
+    <control-panel class="show" id="object-attributes" snap="top">
+      <global-tools v-if="attributes === 'global'"></global-tools>
+      <text-tools v-else-if="attributes === 'text'"></text-tools>
+      <icon-tools v-else-if="attributes === 'icon'"></icon-tools>
     </control-panel>
-    <control-panel id="object-selector" snap="left">
-      <svg-sprites></svg-sprites>
-      <fontawesome-sprites></fontawesome-sprites>
+    <control-panel class="show" id="object-selector" snap="left">
+      <svg-sprites v-if="selector === 'svg'"></svg-sprites>
+      <fontawesome-sprites v-else-if="selector === 'fontawesome'"></fontawesome-sprites>
     </control-panel>
   </div>
 </template>
@@ -32,29 +32,19 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      selector: 'svg',
+      attributes: 'global'
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+<style scoped lang="scss">
+.control-panel, .toolbar, .sprite-box {
+  display: none;
+  &.show {
+    display: block;
+  }
 }
 </style>

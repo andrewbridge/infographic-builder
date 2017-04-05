@@ -18,22 +18,33 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+<style scoped lang="scss">
+@import "src/variables.scss";
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+ .control-panel {
+    position: fixed;
+    background: $panelColour;
+    z-index: 10;
+  }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+  [data-snap="left"] {
+        left: 0;
+        top: $headerHeight;
+        bottom: 0;
+        height: calc(100vh - $headerHeight);
+        width: 162px;
+        overflow: scroll;
+        padding: 0 3px;
+        border-right: 1px solid #383838;
+      }
 
-a {
-  color: #42b983;
-}
+      [data-snap="top"] {
+        left: 169px;
+        right: 0;
+        top: $headerHeight;
+        height: 100px;
+        width: calc(100vw - 165px);
+        padding: 3px;
+        border-bottom: 1px solid #383838;
+      }
 </style>

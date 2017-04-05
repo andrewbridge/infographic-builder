@@ -20,7 +20,19 @@ export default {
   @import "src/variables.scss";
 
   header {
-    background: black;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: $headerHeight;
+    background: $headerColour;
     color: white;
+  }
+
+  h1 {
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
   }
 </style>
